@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "ejs": "^2.7.4",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12"
   },
   "devDependencies": {},
   "scripts": {
