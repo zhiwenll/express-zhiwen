@@ -7,9 +7,15 @@ const mongoose = require('../conf/db')
 const schema = new mongoose.Schema({
     //键值对， key -> 表的字段名 value -> 这个字段的类型
 
-    title: String,  //文章标题
+    title: {
+        type: String,   //设置数据类型
+        required: true  //设置必须输入
+    },  //文章标题
 
-    body: String    //文章正文
+    body: {
+        type: String,
+        required: true
+    }    //文章正文
 })
 
 // 3. 通过 mongoose.model() 生成当前 post 的 model
