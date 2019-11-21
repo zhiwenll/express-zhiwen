@@ -3,6 +3,7 @@ const app = express()
 const path = require('path')
 //引入数据库相关的model文件
 const PostModel = require('./models/post')
+const UserModel = require('./models/user')
 
 //req.body 中间件的设置
 app.use(express.json())
@@ -85,4 +86,50 @@ app.get('/api/posts', async (req,res) => {
     }
 })
 
+//删除文章
+app.delete('/api/posts/:id', async (req,res) => {
+    //1. 去除需要删除的文章id
+    let id = req.params.id
+
+    // 2. 删除
+    await PostModel.deleteOne({ _id: id })
+
+    // 3. 响应
+    res.send({
+        code: 0,
+        msg: 'ok'
+    })
+
+})
+
+//修改文章
+app.put('/api/posts/:id/update', async (req,res) => {
+    //1. 取出需要删除的文章id
+    let id = req.params.id
+
+    //2. 取出要修改的内容
+    let title = req.body.title
+
+    // 3. 找到对应的文章并修改
+    await PostModel.updateOne({ _id: id }, { title: title})
+
+    // 4. 响应
+    res.send({
+        code: 0,
+        msg: 'ok'
+    })
+
+})
+
+//注册
+app.post('/api/users', async (req,res) => {
+    const user = new UserModel(req.body)
+    await user.save()
+    res.send({
+        code: 0,
+        msg: 'ok'
+    })
+})
 app.listen(8080)
+
+
