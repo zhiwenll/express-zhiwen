@@ -17,4 +17,4 @@ const schema = new mongoose.Schema({
 const model = mongoose.model('post', schema)
 
 // 4. 暴露出去
-module.exports()
+module.exports = model
