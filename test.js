@@ -14,5 +14,11 @@ async function main(){
 
 main()
 
-// $2a$12$k.CL18eZta5wgy.c8L6SI.xn4HTOKVL/S0dmXv.axRSjHJksXy1hu
-// $2a$12$Xd1QxCo17jpw/vKUgZsSAeGmzfh6Qyuq4N58Gb1TNbr13Zy8aFaL2
+// $2a$12$k.CL18eZta5wgy.c8L6SI.xn4HTOKVL/S0dmXv.axRSjHJksXy1hu //false
+// $2a$12$Xd1QxCo17jpw/vKUgZsSAeGmzfh6Qyuq4N58Gb1TNbr13Zy8aFaL2 //true
+// 会更新而失效
+
+
+
+
+
