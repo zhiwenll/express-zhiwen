@@ -6,6 +6,10 @@ const path = require('path')
 const PostModel = require('./models/post')
 const UserModel = require('./models/user')
 
+//使用模板引擎，模板页面的存放路径
+app.set('view engine', 'ejs')
+app.set('views', path.resolve(__dirname, './views'))
+
 //req.body 中间件的设置
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -188,6 +192,35 @@ let isOk = false
     }
 
 })
+
+//文章列表页面
+app.get('/posts', async (req,res) => {
+    // 获取分页的参数
+    let pageNum = parseInt(req.query.pageNum) || 1
+    let pageSize = parseInt(req.query.pageSize) || 3
+
+    // 获取数据
+    const posts = await PostModel.find().skip((pageNum - 1) * pageSize).limit(pageSize)
+    // console.log(posts)
+
+    //获取总条数
+    const count = await PostModel.find().countDocuments()
+    
+    // 根据总条数算出总页数
+    const totalPages = Math.ceil(count / pageSize)
+
+    //传到前端的数据
+    res.render('post/index',{ posts, totalPages, pageNum})
+})    
+
+//文章新增页面
+app.get('/posts/create', async (req,res) => {
+    res.render('post/create')
+})
+
+//文章详情页面
+app.get('/posts/:id', async (req,res) => {
+    res.render('post/show')
+})    
+
 app.listen(8080)
-
-
