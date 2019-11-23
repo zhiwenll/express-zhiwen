@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +8,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 <body>
-
     <div class="container">
-        <h1>文章新增</h1>
-        <form action="/posts/store" method="POST">
+        <h1 class="mt-5 mb-5">注册</h1>
+
+        <form action="/registerAction" method="POST">
             <div class="form-group">
-                <label for="title">Title</label>
-                <input name="title" type="text" class="form-control" id="title">
+                <label for="username">Username</label>
+                <input name="username" type="text" class="form-control" id="username">
             </div>
             <div class="form-group">
-                <label for="body">Body</label>
-                <textarea name="body" class="form-control" id="body" cols="30" rows="10"></textarea>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="passowrd"/>
 
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">提交</button>
         </form>
+
+
     </div>
 </body>
-
 </html>

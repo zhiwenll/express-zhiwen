@@ -35,7 +35,10 @@
         <ul class="list-group">
             <% for(var i = 0; i < posts.length; i++ ){ %>
             <li class="list-group-item">
-                <h2><%= posts[i].title %></h2>
+                <h2>
+                    
+                    <a href="/posts/<%= posts[i]._id %>"><%= posts[i].title %></a>
+                </h2>
                 <p><%= posts[i].body %></p>
             </li>
             <% } %>
